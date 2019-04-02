@@ -19,3 +19,13 @@ export VISUAL="vi"
 
 alias ipython='ipython --TerminalInteractiveShell.highlighting_style="rrt"'
 alias cdgo='cd $GOPATH/src'
+
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  unfunction precmd
+  unfunction preexec
+  PS1='$ '
+fi
